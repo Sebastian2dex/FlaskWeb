@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<form action="/submit" method="POST">
+	<input type="text" name="data" id='data' placeholder="Type something">
+	<input type="submit" value="Submit">
+</form>
+
+{% endblock %}
