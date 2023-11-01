@@ -15,3 +15,5 @@
 #In the navigation menu, only Home, Admin and dropdown/uploads workd.... rest you can confire as your wish.
 
 #The default username and password for the Admin panel is given in admin.md file. You can change it as your wish.
+
+#clone this repo by : git clone https://github.com/Sebastian2dex/FlaskWeb
