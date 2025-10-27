@@ -4,7 +4,7 @@ import os
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
 
-# ✅ Ensure upload folder exists
+# Ensure upload folder exists
 if not os.path.exists(app.config['UPLOAD_FOLDER']):
     os.makedirs(app.config['UPLOAD_FOLDER'])
 
@@ -20,12 +20,11 @@ def home():
 def details():
     data = request.form.get('data')
     try:
-        # Use a valid filename instead of "....txt"
         with open("data.txt", 'a') as wf:
             wf.write(f"{data}\n")
         return "<h1><i>Uploading Done</i></h1>"
     except Exception as e:
-        print(e)
+        # print(e)
         return redirect("/")
 
 @app.route("/<name>")
@@ -37,7 +36,7 @@ def justname(name):
         return render_template('uploads.html')
 
     else:
-        return f'<h1>Hello {name}</h1>'
+        return redirect('/')
 
 @app.route("/uploads", methods=["POST"])
 def upload():
@@ -62,7 +61,7 @@ def admin():
     except FileNotFoundError:
         submitted_data = []
 
-    # Read admin credentials from admin.md (example format: username:password)
+    # Read admin credentials from admin.md (example format: username:password) for simplicity
     try:
         with open('admin.md', 'r') as rd:
             username, pwd = rd.readline().strip().split(":")
